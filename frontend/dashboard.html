@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Environmental Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-globe-americas"></i> NASA Dashboard</h3>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li><a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="#" data-section="profile"><i class="fas fa-user"></i> <span>My Profile</span></a></li>
+                <li><a href="#"><i class="fas fa-wind"></i> <span>Air Quality</span></a></li>
+                <li><a href="#"><i class="fas fa-temperature-high"></i> <span>Urban Heat Map</span></a></li>
+                <li><a href="#"><i class="fas fa-water"></i> <span>Flood Risk</span></a></li>
+                <li><a href="#"><i class="fas fa-heartbeat"></i> <span>City Health Index</span></a></li>
+                <li><a href="#"><i class="fas fa-brain"></i> <span>Smart Insights</span></a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> <span>Trend Analytics</span></a></li>
+                <li><a href="#"><i class="fas fa-database"></i> <span>Data Explorer</span></a></li>
+                <li><a href="#"><i class="fas fa-robot"></i> <span>AI Explainability</span></a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> <span>Real-Time Monitor</span></a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> <span>Reports</span></a></li>
+                <li><a href="#"><i class="fas fa-leaf"></i> <span>Sustainability Recommendations</span></a></li>
+                <li><a href="#"><i class="fas fa-lightbulb"></i> <span>Smart Interventions</span></a></li>
+                <li><a href="#"><i class="fas fa-gavel"></i> <span>Policy Recommendations</span></a></li>
+                <li><a href="#"><i class="fas fa-clipboard-list"></i> <span>Admin Logs</span></a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> <span>About / System Overview</span></a></li>
+                <li><a href="#"><i class="fas fa-road"></i> <span>Future Roadmap</span></a></li>
+            </ul>
+        </div>
+    </div>
+x
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+        
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-bar">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Search data, zones, reports...">
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div class="notification-icon me-4">
+                    <i class="fas fa-bell fa-lg"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile me-3" id="userProfile">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=0D8ABC&color=fff" alt="User">
+                </div>
+                <div class="quick-ai">
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fas fa-bolt"></i> Quick AI Insights
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=0D8ABC&color=fff&size=150" alt="User">
+                    <h5 class="mb-1">Alex Johnson</h5>
+                    <p class="mb-0">Environmental Scientist</p>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>alex.johnson@nasa.gov</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>New York, USA</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Environmental Monitoring Division</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Member since Jan 2020</span>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn btn-outline-primary btn-sm" id="viewProfileBtn">
+                        <i class="fas fa-user"></i> View Profile
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div class="dashboard-section active" id="dashboardSection">
+            <!-- AI Summary Banner -->
+            <div class="ai-banner">
+                <i class="fas fa-robot"></i>
+                <div>
+                    <h5 class="mb-1">AI Summary</h5>
+                    <p class="mb-0">City's Air Quality improving by 8% this week. Heat index expected to rise by 2°C in the next 48 hours.</p>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="card-icon aqi-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h5>Air Quality Index</h5>
+                    <div class="card-value">42</div>
+                    <div class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 8% improvement
+                    </div>
+                    <p class="text-muted">Good - Healthy for all groups</p>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon health-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h5>City Health Index</h5>
+                    <div class="card-value">76/100</div>
+                    <div class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 3 points increase
+                    </div>
+                    <p class="text-muted">Moderate - Some areas need attention</p>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon heat-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h5>Heat Index</h5>
+                    <div class="card-value">34°C</div>
+                    <div class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> 2°C increase expected
+                    </div>
+                    <p class="text-muted">Caution - Limit outdoor activities</p>
+                </div>
+                
+                <div class="summary-card">
+                    <div class="card-icon flood-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h5>Flood Risk</h5>
+                    <div class="card-value">Low</div>
+                    <div class="card-trend trend-down">
+                        <i class="fas fa-arrow-down"></i> 15% decrease
+                    </div>
+                    <p class="text-muted">Minimal risk in next 72 hours</p>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <h4 class="mb-3">🌐 Live NASA Data Preview Map</h4>
+                <div class="map-placeholder">
+                    <div class="text-center">
+                        <i class="fas fa-globe-americas fa-3x mb-3"></i>
+                        <p>Interactive NASA Data Visualization Map</p>
+                        <small class="text-muted">Showing real-time environmental data layers</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="quick-actions">
+                <button class="action-btn">
+                    <i class="fas fa-file-alt"></i>
+                    <div>
+                        <h6 class="mb-1">Generate Report</h6>
+                        <p class="mb-0 text-muted">Create custom environmental report</p>
+                    </div>
+                </button>
+                
+                <button class="action-btn">
+                    <i class="fas fa-balance-scale"></i>
+                    <div>
+                        <h6 class="mb-1">Compare Zones</h6>
+                        <p class="mb-0 text-muted">Analyze differences between areas</p>
+                    </div>
+                </button>
+                
+                <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                    <div>
+                        <h6 class="mb-1">Export Data</h6>
+                        <p class="mb-0 text-muted">Download datasets in multiple formats</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section" id="profileSection">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=0D8ABC&color=fff&size=150" alt="User">
+                        <h3>Alex Johnson</h3>
+                        <p class="text-muted">Environmental Scientist</p>
+                        <button class="btn btn-primary mt-2">
+                            <i class="fas fa-edit"></i> Edit Profile
+                        </button>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">42</div>
+                            <div class="stat-label">Reports Generated</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">18</div>
+                            <div class="stat-label">Zones Monitored</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">96%</div>
+                            <div class="stat-label">Data Accuracy</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">3.5y</div>
+                            <div class="stat-label">Platform Usage</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <h4>Personal Information</h4>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <p><strong>Email:</strong> alex.johnson@nasa.gov</p>
+                            <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                            <p><strong>Location:</strong> New York, USA</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Department:</strong> Environmental Monitoring</p>
+                            <p><strong>Role:</strong> Senior Scientist</p>
+                            <p><strong>Member Since:</strong> January 2020</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-tabs">
+                        <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="activity-tab" data-bs-toggle="tab" data-bs-target="#activity" type="button" role="tab">Recent Activity</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab">Account Settings</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content p-3 border border-top-0" id="profileTabsContent">
+                            <div class="tab-pane fade show active" id="activity" role="tabpanel">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Generated Air Quality Report</h6>
+                                        <p class="mb-1">Created a comprehensive AQI analysis for Northeast region</p>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Updated Zone 7 Monitoring</h6>
+                                        <p class="mb-1">Added new sensors and updated baseline data</p>
+                                        <small class="text-muted">1 day ago</small>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Published Trend Analysis</h6>
+                                        <p class="mb-1">Shared urban heat island analysis with policy team</p>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="settings" role="tabpanel">
+                                <div class="mb-3">
+                                    <label for="notifications" class="form-label">Notification Preferences</label>
+                                    <select class="form-select" id="notifications">
+                                        <option>All notifications</option>
+                                        <option>Only important</option>
+                                        <option>None</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="dataRefresh" class="form-label">Data Refresh Rate</label>
+                                    <select class="form-select" id="dataRefresh">
+                                        <option>Real-time</option>
+                                        <option>Every 5 minutes</option>
+                                        <option>Every 15 minutes</option>
+                                        <option>Every hour</option>
+                                    </select>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="emailReports">
+                                    <label class="form-check-label" for="emailReports">
+                                        Email weekly summary reports
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary">Save Settings</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div>
+                    <h6 class="mb-0">NASA Assistant</h6>
+                    <small>Online - Ready to help</small>
+                </div>
+                <button class="btn-close btn-close-white" id="closeChat"></button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="message bot-message">
+                    Hello! I'm your NASA environmental assistant. How can I help you today?
+                </div>
+                <div class="message user-message">
+                    Show me flood risk in Zone 5.
+                </div>
+                <div class="message bot-message">
+                    Flood risk in Zone 5 is currently LOW. Precipitation levels are 15% below average for this season. No immediate concerns detected.
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="chatInput">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chatbot-btn" id="chatbotBtn">
+            <i class="fas fa-comment"></i>
+        </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
+

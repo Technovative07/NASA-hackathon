@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI + NASA Data for Sustainable Cities</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="homepage.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+  
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <i class="fas fa-globe-americas me-2"></i>SustainableCities.AI
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#satellite">Satellite Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="#transformation">Transformation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-outline-light btn-sm ms-2" href="login.html">
+            <i class="fas fa-sign-in-alt me-1"></i>Login
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section d-flex align-items-center justify-content-center text-center text-light">
+    <canvas id="earthCanvas"></canvas>
+    <div class="container">
+      <div class="hero-content animate__animated animate__fadeInUp">
+        <h1 class="display-4 fw-bold">AI + NASA Data for Sustainable Cities</h1>
+        <p class="lead mt-3 mb-4">Empowering smarter, greener, and more resilient urban planning through advanced analytics and space technology.</p>
+        
+        <div class="buttons">
+          <a href="dashboard.html" class="btn btn-primary btn-lg me-3">
+            <i class="fas fa-rocket me-2"></i>Explore Dashboard
+          </a>
+          <a href="predict.html" class="btn btn-success btn-lg me-3">
+            <i class="fas fa-chart-line me-2"></i>Predict My City's Risk
+          </a>
+          <a href="#about" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-info-circle me-2"></i>About Project
+          </a>
+        </div>
+        
+        <!-- Quick Stats Bar -->
+        <div class="stats-bar">
+          <div class="row">
+            <div class="col-md-4 stat-item">
+              <div class="stat-value aqi" id="aqiValue">45</div>
+              <div class="stat-label">Air Quality Index</div>
+            </div>
+            <div class="col-md-4 stat-item">
+              <div class="stat-value temp" id="tempValue">22.5°C</div>
+              <div class="stat-label">Average Temperature</div>
+            </div>
+            <div class="col-md-4 stat-item">
+              <div class="stat-value flood" id="floodValue">Low</div>
+              <div class="stat-label">Flood Risk</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section-spacing">
+    <div class="container">
+      <h2 class="section-title">How We Transform Urban Planning</h2>
+      <p class="section-subtitle">Our platform integrates NASA satellite data with advanced AI analytics to provide comprehensive insights for sustainable urban development.</p>
+      
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-satellite"></i>
+            </div>
+            <h3 class="feature-title">NASA Satellite Data</h3>
+            <p class="feature-text">Access real-time and historical Earth observation data from NASA's MODIS, Landsat, and other satellite systems for comprehensive urban analysis.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-tint"></i>
+            </div>
+            <h3 class="feature-title">Flood Risk Assessment</h3>
+            <p class="feature-text">Predict and visualize flood risks using topographic data, rainfall patterns, and climate models to enhance urban resilience.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="feature-title">AI-Powered Analytics</h3>
+            <p class="feature-text">Leverage advanced machine learning models to predict environmental trends, identify risks, and optimize urban development strategies.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="feature-title">Air Quality Monitoring</h3>
+            <p class="feature-text">Track and forecast air pollution levels using satellite aerosol data and ground sensors for healthier urban environments.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-city"></i>
+            </div>
+            <h3 class="feature-title">Urban Heat Island Mapping</h3>
+            <p class="feature-text">Identify and mitigate urban heat islands using thermal imaging data to improve city livability and reduce energy consumption.</p>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="feature-card animate__animated">
+            <div class="feature-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3 class="feature-title">Interactive Dashboards</h3>
+            <p class="feature-text">Explore data through intuitive visualizations and customizable dashboards designed for urban planners and policymakers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Search Section -->
+  <section class="section-spacing bg-dark">
+    <div class="container">
+      <div class="search-section">
+        <h3 class="search-title">Data Search</h3>
+        <p class="text-center mb-4">Search our extensive database of NASA satellite imagery and urban analytics</p>
+        <div class="search-form">
+          <input type="text" class="search-input" placeholder="Enter city name, coordinates, or data type...">
+          <button class="search-btn">
+            <i class="fas fa-search me-2"></i>Search Data
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Satellite Widget Section -->
+  <section id="satellite" class="section-spacing">
+    <div class="container">
+      <h2 class="section-title">Live NASA MODIS Satellite Data</h2>
+      <p class="section-subtitle">Access real-time Earth observation data from NASA's satellite systems for comprehensive urban analysis.</p>
+      
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="satellite-widget">
+            <div class="widget-header">
+              <h3 class="widget-title">
+                <i class="fas fa-satellite-dish me-2"></i>Latest MODIS Terra Satellite Image
+              </h3>
+            </div>
+            <div class="widget-body">
+              <img src="https://scontent.fblr4-1.fna.fbcdn.net/v/t39.30808-6/481468787_946995690944872_5576664336846765818_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kRx03Tzh7i8Q7kNvwHpETFY&_nc_oc=AdlzAux000-i7dZz5Waim_ZXDGTxoBF5cyHPLvh_FbCsf0fdNEQc5ROyHnV8h_Ui8XcPfhyDaj1zIt-tO1tRkVCl&_nc_zt=23&_nc_ht=scontent.fblr4-1.fna&_nc_gid=C6kEaDTJaK5PCtZ_uKrMkg&oh=00_Affe8pegaJJOQoA4-kcYo8VQVRvF1v9fAZTFV5Ih4zAkbw&oe=68E6F78F" alt="MODIS Satellite Image" class="satellite-image" id="satelliteImage">
+              <div class="refresh-indicator">
+                <i class="fas fa-sync-alt fa-spin"></i>
+                <span>Last updated: <span id="lastUpdate">Just now</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformation Section -->
+  <section id="transformation" class="scroll-section">
+    <div class="scroll-bg"></div>
+    <div class="city-overlay"></div>
+    <div class="container">
+      <h2 class="section-title">Transforming Cities Using Space Data</h2>
+      <p class="section-subtitle">From satellite imagery to actionable insights - our process transforms raw data into sustainable urban solutions.</p>
+      
+      <div class="scroll-content">
+        <div class="scroll-item">
+          <div class="scroll-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="scroll-title">Data Collection</h3>
+          <p class="scroll-text">We gather petabytes of Earth observation data from NASA's satellite constellations, including MODIS, Landsat, and Sentinel missions, providing a comprehensive view of our planet's changing urban landscapes.</p>
+        </div>
+        
+        <div class="scroll-item">
+          <div class="scroll-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3 class="scroll-title">AI Processing</h3>
+          <p class="scroll-text">Our advanced machine learning algorithms process this data to identify patterns, predict trends, and extract actionable insights about urban growth, environmental changes, and potential risks.</p>
+        </div>
+        
+        <div class="scroll-item">
+          <div class="scroll-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="scroll-title">Visualization</h3>
+          <p class="scroll-text">Complex data is transformed into intuitive visualizations, interactive maps, and dashboards that make it easy for urban planners to understand and act upon the information.</p>
+        </div>
+        
+        <div class="scroll-item">
+          <div class="scroll-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="scroll-title">Decision Support</h3>
+          <p class="scroll-text">City officials and planners use our insights to make data-driven decisions about zoning, infrastructure development, green space allocation, and climate resilience strategies.</p>
+        </div>
+        
+        <div class="scroll-item">
+          <div class="scroll-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+          <h3 class="scroll-title">Sustainable Outcomes</h3>
+          <p class="scroll-text">The result is cities that are more sustainable, resilient, and livable - with reduced environmental impact, improved public health, and enhanced quality of life for all residents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-spacing">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h2 class="section-title text-start">About SustainableCities.AI</h2>
+          <p class="lead">
+            SustainableCities.AI is an innovative platform that leverages NASA's Earth observation data integrated with advanced AI models to monitor air quality, urban heat islands, and flood risks — helping urban planners make data-driven sustainable decisions.
+          </p>
+          <p>
+            Our mission is to bridge the gap between space technology and urban sustainability, providing cities with the tools they need to combat climate change, reduce environmental impact, and create healthier living environments for their residents.
+          </p>
+          <div class="mt-4">
+            <a href="#" class="btn btn-primary me-3">Read Our White Paper</a>
+            <a href="#" class="btn btn-outline-light">Case Studies</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="feature-card p-4">
+            <h4 class="feature-title">Our Data Sources</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>NASA MODIS Satellite Data</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Landsat 8 & 9 Imagery</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sentinel Satellite Data</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>NOAA Weather Data</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>OpenStreetMap Geodata</li>
+              <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Urban Sensor Networks</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h4 class="mb-3">
+            <i class="fas fa-globe-americas me-2"></i>SustainableCities.AI
+          </h4>
+          <p>Transforming urban planning through AI and space technology for a sustainable future.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#satellite">Satellite Data</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="mb-3">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Access</a></li>
+            <li><a href="#">Data Sources</a></li>
+            <li><a href="#">Research Papers</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h5 class="mb-3">Contact Us</h5>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope me-2"></i>contact@sustainablecities.ai</li>
+            <li><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</li>
+            <li><i class="fas fa-map-marker-alt me-2"></i>San Francisco, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 SustainableCities.AI | Powered by NASA Data & AI</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="homepage.js"></script>
+</body>
+</html>
+
