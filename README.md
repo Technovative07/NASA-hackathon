@@ -127,7 +127,7 @@ npm start
 ## 👨‍💻 Contributors
 
 * Piyush K.
-* [Add your teammates here]
+* Rakshitha L U
 
 ---
 
